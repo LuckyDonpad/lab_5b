@@ -128,6 +128,19 @@ lab_5b/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/build
 .PHONY : lab_5b/fast
 
+#=============================================================================
+# Target rules for targets named data_structures
+
+# Build rule for target.
+data_structures: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 data_structures
+.PHONY : data_structures
+
+# fast build rule for target.
+data_structures/fast:
+	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
+.PHONY : data_structures/fast
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -160,6 +173,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... data_structures
 	@echo ... lab_5b
 	@echo ... main.obj
 	@echo ... main.i
