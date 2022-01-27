@@ -4,6 +4,7 @@
 
 #include "matrix.h"
 #include <malloc.h>
+#include <assert.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -23,4 +24,12 @@ void freeMemMatrix(matrix mat) {
     for (size_t i = 0; i < mat.nRows; ++i)
         free(mat.values[i]);
     free(mat.values);
+}
+
+void freeMemMatrices(matrix *ms, int nMatrices){
+    assert(nMatrices > 0);
+
+    for (size_t i = 0; i < nMatrices; ++i)
+        freeMemMatrix(ms[i]);
+    free(ms);
 }
