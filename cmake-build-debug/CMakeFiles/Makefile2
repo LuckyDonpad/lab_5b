@@ -111,7 +111,8 @@ libs/data_structures/clean: libs/data_structures/CMakeFiles/array.dir/clean
 # Target rules for target CMakeFiles/lab_5b.dir
 
 # All Build rule for target.
-CMakeFiles/lab_5b.dir/all:
+CMakeFiles/lab_5b.dir/all: libs/data_structures/CMakeFiles/matrix.dir/all
+CMakeFiles/lab_5b.dir/all: libs/data_structures/CMakeFiles/array.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="E:\clion projects\lab_5b\cmake-build-debug\CMakeFiles" --progress-num=3,4,5 "Built target lab_5b"
@@ -119,7 +120,7 @@ CMakeFiles/lab_5b.dir/all:
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lab_5b.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "E:\clion projects\lab_5b\cmake-build-debug\CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "E:\clion projects\lab_5b\cmake-build-debug\CMakeFiles" 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/lab_5b.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "E:\clion projects\lab_5b\cmake-build-debug\CMakeFiles" 0
 .PHONY : CMakeFiles/lab_5b.dir/rule

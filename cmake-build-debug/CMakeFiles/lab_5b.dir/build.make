@@ -102,6 +102,8 @@ lab_5b_EXTERNAL_OBJECTS =
 lab_5b.exe: CMakeFiles/lab_5b.dir/main.c.obj
 lab_5b.exe: CMakeFiles/lab_5b.dir/libs/data_structures/matrix/array.c.obj
 lab_5b.exe: CMakeFiles/lab_5b.dir/build.make
+lab_5b.exe: libs/data_structures/libmatrix.a
+lab_5b.exe: libs/data_structures/libarray.a
 lab_5b.exe: CMakeFiles/lab_5b.dir/linklibs.rsp
 lab_5b.exe: CMakeFiles/lab_5b.dir/objects1.rsp
 lab_5b.exe: CMakeFiles/lab_5b.dir/link.txt

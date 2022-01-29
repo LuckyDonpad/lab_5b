@@ -70,7 +70,7 @@ void swapRows(matrix m, int i1, int i2) {
 }
 
 void swapColumns(matrix m, int j1, int j2){
-    for (int i = 0; i < ; ++i) {
-        
+    for (int row = 0; row < m.nRows; ++row) {
+        swap(&m.values[row][j1], &m.values[row][j2], sizeof(int));
     }
 }

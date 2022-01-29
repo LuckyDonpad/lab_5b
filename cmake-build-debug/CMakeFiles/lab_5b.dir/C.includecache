@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h
+E:/clion projects/lab_5b/libs/data_structures/matrix/array.c
+array.h
+E:/clion projects/lab_5b/libs/data_structures/matrix/array.h
 
-E:/clion projects/lab_5b/main.c
+E:/clion projects/lab_5b/libs/data_structures/matrix/array.h
 stdio.h
 -
-libs/data_structures/matrix/matrix.h
-E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h
 
