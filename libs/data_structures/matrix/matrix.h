@@ -41,4 +41,7 @@ void outputMatrix(matrix m);
 // вывод массива матриц ms размера nMatrices на экран
 void outputMatrices(matrix *ms, int nMatrices);
 
+// обменивает местами строки матрицы m под номерами i1 и i2
+void swapRows(matrix m, int i1, int i2);
+
 #endif //LAB_5B_MATRIX_H

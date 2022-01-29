@@ -58,5 +58,12 @@ void outputMatrix(matrix m) {
 void outputMatrices(matrix *ms, int nMatrices) {
     for (int matrix = 0; matrix < nMatrices; ++matrix) {
         outputMatrix(ms[matrix]);
+        printf("\n");
     }
+}
+
+void swapRows(matrix m, int i1, int i2) {
+    int *tmp = m.values[i1];
+    m.values[i1] = m.values[i2];
+    m.values[i2] = tmp;
 }
