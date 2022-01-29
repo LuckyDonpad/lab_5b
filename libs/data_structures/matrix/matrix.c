@@ -1,7 +1,7 @@
 //
 // Created by Donpad on 27.01.2022.
 //
-
+#include <stdio.h>
 #include "matrix.h"
 #include <malloc.h>
 #include <assert.h>
@@ -26,10 +26,22 @@ void freeMemMatrix(matrix mat) {
     free(mat.values);
 }
 
-void freeMemMatrices(matrix *ms, int nMatrices){
+void freeMemMatrices(matrix *ms, int nMatrices) {
     assert(nMatrices > 0);
 
     for (size_t i = 0; i < nMatrices; ++i)
         freeMemMatrix(ms[i]);
     free(ms);
+}
+
+void inputMatrix(matrix m) {
+    for (int row = 0; row < m.nRows; ++row)
+        for (int column = 0; column < m.nCols; ++column)
+            scanf("%d", &(m.values[row][column]));
+}
+
+void inputMatrices(matrix *ms, int nMatrices){
+    for (int matrix = 0; matrix < nMatrices; ++matrix) {
+        inputMatrix(ms[matrix]);
+    }
 }
