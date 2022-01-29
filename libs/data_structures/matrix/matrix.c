@@ -54,3 +54,9 @@ void outputMatrix(matrix m) {
         }
     }
 }
+
+void outputMatrices(matrix *ms, int nMatrices) {
+    for (int matrix = 0; matrix < nMatrices; ++matrix) {
+        outputMatrix(ms[matrix]);
+    }
+}

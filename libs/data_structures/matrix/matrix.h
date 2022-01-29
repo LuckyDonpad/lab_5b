@@ -38,4 +38,7 @@ void inputMatrices(matrix *ms, int nMatrices);
 // вывод матрицы m на экран
 void outputMatrix(matrix m);
 
+// вывод массива матриц ms размера nMatrices на экран
+void outputMatrices(matrix *ms, int nMatrices);
+
 #endif //LAB_5B_MATRIX_H
