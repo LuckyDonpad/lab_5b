@@ -1,3 +1,2 @@
-add_library(data_structures
-        matrix/matrix.c
-        matrix/matrix.h)
+ add_library(matrix matrix/matrix.c)
+ add_library(array matrix/array.c)

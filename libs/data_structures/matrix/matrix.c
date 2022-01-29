@@ -5,6 +5,7 @@
 #include "matrix.h"
 #include <malloc.h>
 #include <assert.h>
+#include "array.h"
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -66,4 +67,10 @@ void swapRows(matrix m, int i1, int i2) {
     int *tmp = m.values[i1];
     m.values[i1] = m.values[i2];
     m.values[i2] = tmp;
+}
+
+void swapColumns(matrix m, int j1, int j2){
+    for (int i = 0; i < ; ++i) {
+        
+    }
 }

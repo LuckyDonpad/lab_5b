@@ -129,17 +129,54 @@ lab_5b/fast:
 .PHONY : lab_5b/fast
 
 #=============================================================================
-# Target rules for targets named data_structures
+# Target rules for targets named matrix
 
 # Build rule for target.
-data_structures: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 data_structures
-.PHONY : data_structures
+matrix: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 matrix
+.PHONY : matrix
 
 # fast build rule for target.
-data_structures/fast:
-	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-.PHONY : data_structures/fast
+matrix/fast:
+	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\matrix.dir\build.make libs/data_structures/CMakeFiles/matrix.dir/build
+.PHONY : matrix/fast
+
+#=============================================================================
+# Target rules for targets named array
+
+# Build rule for target.
+array: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 array
+.PHONY : array
+
+# fast build rule for target.
+array/fast:
+	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\array.dir\build.make libs/data_structures/CMakeFiles/array.dir/build
+.PHONY : array/fast
+
+libs/data_structures/matrix/array.obj: libs/data_structures/matrix/array.c.obj
+.PHONY : libs/data_structures/matrix/array.obj
+
+# target to build an object file
+libs/data_structures/matrix/array.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/libs/data_structures/matrix/array.c.obj
+.PHONY : libs/data_structures/matrix/array.c.obj
+
+libs/data_structures/matrix/array.i: libs/data_structures/matrix/array.c.i
+.PHONY : libs/data_structures/matrix/array.i
+
+# target to preprocess a source file
+libs/data_structures/matrix/array.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/libs/data_structures/matrix/array.c.i
+.PHONY : libs/data_structures/matrix/array.c.i
+
+libs/data_structures/matrix/array.s: libs/data_structures/matrix/array.c.s
+.PHONY : libs/data_structures/matrix/array.s
+
+# target to generate assembly for a file
+libs/data_structures/matrix/array.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\lab_5b.dir\build.make CMakeFiles/lab_5b.dir/libs/data_structures/matrix/array.c.s
+.PHONY : libs/data_structures/matrix/array.c.s
 
 main.obj: main.c.obj
 .PHONY : main.obj
@@ -173,8 +210,12 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... data_structures
+	@echo ... array
 	@echo ... lab_5b
+	@echo ... matrix
+	@echo ... libs/data_structures/matrix/array.obj
+	@echo ... libs/data_structures/matrix/array.i
+	@echo ... libs/data_structures/matrix/array.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

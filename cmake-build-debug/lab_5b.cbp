@@ -73,8 +73,8 @@
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="data_structures">
-				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libdata_structures.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="matrix">
+				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libmatrix.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -85,14 +85,14 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 data_structures"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 matrix"/>
 					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="data_structures/fast">
-				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libdata_structures.a" prefix_auto="0" extension_auto="0"/>
+			<Target title="matrix/fast">
+				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libmatrix.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
@@ -103,18 +103,61 @@
 					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 data_structures/fast"/>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 matrix/fast"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="array">
+				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libarray.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 array"/>
+					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="array/fast">
+				<Option output="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/libarray.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="C:/Program Files/mingw-w64/x86_64-8.1.0-posix-seh-rt_v6-rev0/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 array/fast"/>
 					<CompileFile command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/bin/mingw32-make.exe -f &quot;E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/array.c">
+			<Option target="lab_5b"/>
+			<Option target="array"/>
+		</Unit>
+		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/array.h">
+			<Option target="lab_5b"/>
+		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.c">
-			<Option target="data_structures"/>
+			<Option target="matrix"/>
 		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h">
-			<Option target="data_structures"/>
+			<Option target="matrix"/>
 		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/main.c">
 			<Option target="lab_5b"/>

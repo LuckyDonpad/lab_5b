@@ -44,4 +44,7 @@ void outputMatrices(matrix *ms, int nMatrices);
 // обменивает местами строки матрицы m под номерами i1 и i2
 void swapRows(matrix m, int i1, int i2);
 
+// обменивает местами колонки матрицы m под номерами j1 и j2
+void swapColumns(matrix m, int j1, int j2);
+
 #endif //LAB_5B_MATRIX_H
