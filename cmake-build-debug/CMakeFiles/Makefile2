@@ -80,33 +80,15 @@ clean: libs/clean
 
 # Recursive "all" directory target.
 libs/all: libs/data_structures/all
-libs/all: libs/algorithms/all
 .PHONY : libs/all
 
 # Recursive "preinstall" directory target.
 libs/preinstall: libs/data_structures/preinstall
-libs/preinstall: libs/algorithms/preinstall
 .PHONY : libs/preinstall
 
 # Recursive "clean" directory target.
 libs/clean: libs/data_structures/clean
-libs/clean: libs/algorithms/clean
 .PHONY : libs/clean
-
-#=============================================================================
-# Directory level rules for directory libs/algorithms
-
-# Recursive "all" directory target.
-libs/algorithms/all:
-.PHONY : libs/algorithms/all
-
-# Recursive "preinstall" directory target.
-libs/algorithms/preinstall:
-.PHONY : libs/algorithms/preinstall
-
-# Recursive "clean" directory target.
-libs/algorithms/clean:
-.PHONY : libs/algorithms/clean
 
 #=============================================================================
 # Directory level rules for directory libs/data_structures

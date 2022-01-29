@@ -6,5 +6,3 @@ E:/clion projects/lab_5b/cmake-build-debug/libs/CMakeFiles/rebuild_cache.dir
 E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/CMakeFiles/data_structures.dir
 E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/CMakeFiles/edit_cache.dir
 E:/clion projects/lab_5b/cmake-build-debug/libs/data_structures/CMakeFiles/rebuild_cache.dir
-E:/clion projects/lab_5b/cmake-build-debug/libs/algorithms/CMakeFiles/edit_cache.dir
-E:/clion projects/lab_5b/cmake-build-debug/libs/algorithms/CMakeFiles/rebuild_cache.dir

@@ -35,5 +35,7 @@ void inputMatrix(matrix m);
 // ввод массива из nMatrices матриц, хранящейся по адресу ms
 void inputMatrices(matrix *ms, int nMatrices);
 
+// вывод матрицы m на экран
+void outputMatrix(matrix m);
 
 #endif //LAB_5B_MATRIX_H

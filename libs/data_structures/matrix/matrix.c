@@ -40,8 +40,17 @@ void inputMatrix(matrix m) {
             scanf("%d", &(m.values[row][column]));
 }
 
-void inputMatrices(matrix *ms, int nMatrices){
+void inputMatrices(matrix *ms, int nMatrices) {
     for (int matrix = 0; matrix < nMatrices; ++matrix) {
         inputMatrix(ms[matrix]);
+    }
+}
+
+void outputMatrix(matrix m) {
+    for (int row = 0; row < m.nRows; ++row) {
+        printf("\n| ");
+        for (int column = 0; column < m.nCols; ++column) {
+            printf("%d | ", (m.values[row][column]));
+        }
     }
 }

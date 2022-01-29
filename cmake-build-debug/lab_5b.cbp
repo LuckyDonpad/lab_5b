@@ -5,7 +5,7 @@
 		<Option title="lab_5b"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;CMake Files\libs\algorithms\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\libs\;CMake Files\libs\data_structures\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="E:/clion projects/lab_5b/cmake-build-debug"/>
@@ -127,9 +127,6 @@
 		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\libs\data_structures\"/>
-		</Unit>
-		<Unit filename="E:/clion projects/lab_5b/libs/algorithms/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\libs\algorithms\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>
