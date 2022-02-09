@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lab_5b.dir/libs/data_structures/matrix/array.c.obj"
   "CMakeFiles/lab_5b.dir/main.c.obj"
   "lab_5b.exe"
   "lab_5b.exe.manifest"

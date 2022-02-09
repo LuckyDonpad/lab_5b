@@ -69,8 +69,26 @@ void swapRows(matrix m, int i1, int i2) {
     m.values[i2] = tmp;
 }
 
-void swapColumns(matrix m, int j1, int j2){
+void swapColumns(matrix m, int j1, int j2) {
     for (int row = 0; row < m.nRows; ++row) {
-        swap(&m.values[row][j1], &m.values[row][j2], sizeof(int));
+        swap_(&m.values[row][j1], &m.values[row][j2], sizeof(int));
+    }
+}
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+    int criteriaArray[m.nRows];
+    for (int i = 0; i < m.nRows; ++i) {
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+    }
+    for (int i = 0; i < m.nRows; ++i) {
+        int max = i;
+        for (int j = i; j < m.nRows; j++) {
+            if (criteriaArray[j] > criteriaArray[max])
+                max = j;
+        }
+        printf("%lld\n", sizeof(&criteriaArray[max]));
+        printf("%lld\n", sizeof(int *));
+        swap(&criteriaArray[max],&criteriaArray[i]);
+        swapRows(m, i, max);
     }
 }

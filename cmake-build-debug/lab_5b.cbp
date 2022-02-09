@@ -147,11 +147,10 @@
 			</Target>
 		</Build>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/array.c">
-			<Option target="lab_5b"/>
 			<Option target="array"/>
 		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/array.h">
-			<Option target="lab_5b"/>
+			<Option target="array"/>
 		</Unit>
 		<Unit filename="E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.c">
 			<Option target="matrix"/>

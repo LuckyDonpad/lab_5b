@@ -4,7 +4,7 @@
 
 #include "array.h"
 
-void swap(void *a, void *b, size_t size) {
+void swap_(void *a, void *b, size_t size) {
     char *pa = a;
     char *pb = b;
     for (size_t i = 0; i < size; i++) {
@@ -14,4 +14,10 @@ void swap(void *a, void *b, size_t size) {
         pa++;
         pb++;
     }
+}
+
+void swap(int *a, int *b){
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
 }
