@@ -2,7 +2,13 @@
 #include "libs/data_structures/matrix/matrix.h"
 #include "libs/data_structures/matrix/array.h"
 
-int arraySum(int *array, size_t size){
+void test_twoMatricesEqual_equalMatrices();
+
+void test_twoMatricesEqual_nonEqualMatricesByValue();
+
+void test_twoMatricesEqual_nonEqualMatricesBySize();
+
+int arraySum(int *array, size_t size) {
     int sum = 0;
     for (int i = 0; i < size; ++i) {
         sum += array[i];
@@ -11,11 +17,12 @@ int arraySum(int *array, size_t size){
 }
 
 int main() {
-    int a = 4;
-    int b = 2;
+
     matrix matrix1 = getMemMatrix(3, 3);
+
     inputMatrix(matrix1);
-    insertionSortRowsMatrixByRowCriteria(matrix1, (int (*)(int *, int)) arraySum);
+
+    printf("%d", (isEMatrix(matrix1)));
     outputMatrix(matrix1);
     return 0;
 }

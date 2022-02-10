@@ -92,3 +92,41 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
         swapRows(m, i, max);
     }
 }
+
+void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+}
+
+bool isSquareMatrix(matrix m) {
+    return (bool) m.nRows == m.nCols;
+}
+
+bool twoMatricesEqual(matrix m1, matrix m2) {
+    if (m1.nRows == m2.nRows && m1.nCols == m2.nCols) {
+        bool isEqual = true;
+        size_t y = 0;
+        while (isEqual && y < m1.nRows) {
+            size_t x = 0;
+            while (isEqual && x < m1.nCols) {
+                isEqual = (bool) (m1.values[y][x] == m2.values[y][x]);
+                x++;
+            }
+            y++;
+        }
+        return (bool) isEqual;
+    }
+    return (bool) false;
+}
+
+bool isEMatrix(matrix m) {
+    bool isE = true;
+    size_t y = 0;
+    while (isE && y < m.nRows) {
+        size_t x = 0;
+        while (isE && x < m.nCols) {
+            isE = (bool) (m.values[y][x] == 1);
+            x++;
+        }
+        y++;
+    }
+    return (bool) isE;
+}
