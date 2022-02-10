@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "libs/data_structures/matrix/matrix.h"
+#include "libs/data_structures/matrix/array.h"
 
 int arraySum(int *array, size_t size){
     int sum = 0;

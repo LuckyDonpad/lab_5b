@@ -88,7 +88,7 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
         }
         printf("%lld\n", sizeof(&criteriaArray[max]));
         printf("%lld\n", sizeof(int *));
-        swap(&criteriaArray[max],&criteriaArray[i]);
+        swap_(&criteriaArray[max], &criteriaArray[i], sizeof(int));
         swapRows(m, i, max);
     }
 }
