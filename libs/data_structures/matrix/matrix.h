@@ -66,5 +66,8 @@ bool twoMatricesEqual(matrix m1, matrix m2);
 // – возвращает значение ’истина’, если матрица m является единичной, ложь – в противном случае.
 bool isEMatrix(matrix m);
 
+//– возвращает значение ’истина’, если матрица m является симметричной, ложь – в противном случае.
+bool isSymmetricMatrix(matrix m);
+
 
 #endif //LAB_5B_MATRIX_H

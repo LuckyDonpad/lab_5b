@@ -130,3 +130,21 @@ bool isEMatrix(matrix m) {
     }
     return (bool) isE;
 }
+
+bool isSymmetricMatrix(matrix m) {
+    if (!isSquareMatrix(m)) {
+        return false;
+    } else {
+        bool isSymmetric = true;
+        size_t y = 0;
+        while (isSymmetric && y < m.nRows) {
+            size_t x = 0;
+            while (isSymmetric && x < m.nCols) {
+                isSymmetric = (bool) (m.values[y][x] == m.values[x][y]);
+                x++;
+            }
+            y++;
+        }
+        return (bool) isSymmetric;
+    }
+}

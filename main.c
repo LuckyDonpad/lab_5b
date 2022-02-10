@@ -22,7 +22,7 @@ int main() {
 
     inputMatrix(matrix1);
 
-    printf("%d", (isEMatrix(matrix1)));
+    printf("%d", (isSymmetricMatrix(matrix1)));
     outputMatrix(matrix1);
     return 0;
 }
