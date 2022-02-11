@@ -18,11 +18,11 @@ int arraySum(int *array, size_t size) {
 
 int main() {
 
-    matrix matrix1 = getMemMatrix(3, 3);
+    matrix matrix1 = getMemMatrix(4, 4);
 
     inputMatrix(matrix1);
 
-    insertionSortColsMatrixByColCriteria(matrix1, arraySum);
+    transposeSquareMatrix(matrix1);
     outputMatrix(matrix1);
     return 0;
 }

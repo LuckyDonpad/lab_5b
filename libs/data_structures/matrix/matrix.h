@@ -72,5 +72,19 @@ bool isSymmetricMatrix(matrix m);
 // заполняет массив array pos-ой колонной матрицы m;
 void getRowFromColumn(matrix m, size_t pos, int *array);
 
+//– транспонирует квадратную матрицу m.
+void transposeSquareMatrix(matrix m);
+
+//возвращает значение элемента матрицы m находящегося на позиции pos
+int getElementByPosition(matrix m, position pos);
+
+// – возвращает позицию минимального элемента матрицы m.
+position getMinValuePos(matrix m);
+
+//– возвращает позицию максимального элемента матрицы m.
+position getMaxValuePos(matrix m);
+
+
+
 
 #endif //LAB_5B_MATRIX_H
