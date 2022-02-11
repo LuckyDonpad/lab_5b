@@ -69,5 +69,8 @@ bool isEMatrix(matrix m);
 //– возвращает значение ’истина’, если матрица m является симметричной, ложь – в противном случае.
 bool isSymmetricMatrix(matrix m);
 
+// заполняет массив array pos-ой колонной матрицы m;
+void getRowFromColumn(matrix m, size_t pos, int *array);
+
 
 #endif //LAB_5B_MATRIX_H

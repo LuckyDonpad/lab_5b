@@ -22,7 +22,7 @@ int main() {
 
     inputMatrix(matrix1);
 
-    printf("%d", (isSymmetricMatrix(matrix1)));
+    insertionSortColsMatrixByColCriteria(matrix1, arraySum);
     outputMatrix(matrix1);
     return 0;
 }

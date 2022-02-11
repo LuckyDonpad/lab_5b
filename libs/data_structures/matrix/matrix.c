@@ -86,14 +86,32 @@ void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int))
             if (criteriaArray[j] > criteriaArray[max])
                 max = j;
         }
-        printf("%lld\n", sizeof(&criteriaArray[max]));
-        printf("%lld\n", sizeof(int *));
         swap_(&criteriaArray[max], &criteriaArray[i], sizeof(int));
         swapRows(m, i, max);
     }
 }
 
+void getRowFromColumn(matrix m, size_t pos, int *array) {
+    for (int i = 0; i < m.nRows; ++i)
+        array[i] = m.values[i][pos];
+}
+
 void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+    int criteriaArray[m.nCols];
+    int column[m.nRows];
+    for (int i = 0; i < m.nCols; ++i) {
+        getRowFromColumn(m, i, column);
+        criteriaArray[i] = criteria(column, m.nRows);
+    }
+    for (int i = 0; i < m.nCols; ++i) {
+        int max = i;
+        for (int j = i; j < m.nCols; j++) {
+            if (criteriaArray[j] > criteriaArray[max])
+                max = j;
+        }
+        swap_(&criteriaArray[max], &criteriaArray[i], sizeof(int));
+        swapColumns(m, i, max);
+    }
 }
 
 bool isSquareMatrix(matrix m) {
