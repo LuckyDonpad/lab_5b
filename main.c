@@ -75,9 +75,12 @@ void test() {
 
 int main() {
     test();
-    matrix m = getMemMatrix(3,3);
+    int x = 3;
+    matrix m = getMemMatrix(x,x);
+//    matrix n = getMemMatrix(3,3);
     inputMatrix(m);
-    sortColsByMinElement(m);
+//    inputMatrix(n);
+    getSquareOfMatrixIfSymmetric(&m);
     outputMatrix(m);
 
     return 0;

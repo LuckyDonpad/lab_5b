@@ -22,4 +22,7 @@ int getMinNegative(int *a, int n);
 // // сортирует cтолбцы матрицы m по неубыванию наименьших элементов столбцов
 void sortColsByMinElement(matrix m);
 
+// если матрица m симметричная, то заменяет её квадратом
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
 #endif //LAB_5B_TASKS_H

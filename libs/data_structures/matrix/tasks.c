@@ -5,6 +5,8 @@
 #include "tasks.h"
 #include "matrix.h"
 #include <stddef.h>
+#include "array.h"
+#include <malloc.h>
 
 /// task 1
 void swapRowsWithMinAndMax(matrix m) {
@@ -29,7 +31,7 @@ void sortRowsByMaxElement(matrix m) {
 }
 
 /// task 3
-int getMinNegative(int *a, int n){
+int getMinNegative(int *a, int n) {
     int min = a[0];
     for (int i = 0; i < n; ++i) {
         if (a[i] < min)
@@ -40,8 +42,29 @@ int getMinNegative(int *a, int n){
 }
 
 
-void sortColsByMinElement(matrix m){
+void sortColsByMinElement(matrix m) {
     insertionSortColsMatrixByColCriteria(m, getMinNegative);
+}
+
+/// task 4
+matrix mulMatrices(matrix m1, matrix m2) {
+    matrix c = getMemMatrix(m1.nRows, m1.nCols);
+    for (int i = 0; i < m1.nRows; i++)
+        for (int j = 0; j < m2.nCols; j++) {
+            c.values[i][j] = 0;
+            for (int k = 0; k < m1.nCols; k++)
+                c.values[i][j] += m1.values[i][k] * m2.values[k][j];
+        }
+
+    return c;
+}
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    if (isSymmetricMatrix(*m)) {
+        matrix z = mulMatrices(*m, *m);
+        swap_(m, &z, sizeof(matrix));
+        freeMemMatrix(z);
+    }
 }
 
 

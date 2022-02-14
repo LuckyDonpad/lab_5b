@@ -6,6 +6,7 @@
 #include <malloc.h>
 #include <assert.h>
 #include "array.h"
+#include <stdbool.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -115,7 +116,7 @@ void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
 }
 
 bool isSquareMatrix(matrix m) {
-    return (bool) m.nRows == m.nCols;
+    return m.nRows == m.nCols;
 }
 
 bool twoMatricesEqual(matrix m1, matrix m2) {
