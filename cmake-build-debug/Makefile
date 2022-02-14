@@ -154,6 +154,19 @@ array/fast:
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\array.dir\build.make libs/data_structures/CMakeFiles/array.dir/build
 .PHONY : array/fast
 
+#=============================================================================
+# Target rules for targets named tasks
+
+# Build rule for target.
+tasks: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 tasks
+.PHONY : tasks
+
+# fast build rule for target.
+tasks/fast:
+	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\tasks.dir\build.make libs/data_structures/CMakeFiles/tasks.dir/build
+.PHONY : tasks/fast
+
 main.obj: main.c.obj
 .PHONY : main.obj
 
@@ -189,6 +202,7 @@ help:
 	@echo ... array
 	@echo ... lab_5b
 	@echo ... matrix
+	@echo ... tasks
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

@@ -8,4 +8,5 @@ add_executable(lab_5b main.c)
 add_subdirectory(libs)
 target_link_libraries(lab_5b matrix)
 target_link_libraries(lab_5b array)
+target_link_libraries(lab_5b tasks)
 

@@ -3,6 +3,7 @@
 #include "libs/data_structures/matrix/array.h"
 #include <assert.h>
 #include <iso646.h>
+#include "libs/data_structures/matrix/tasks.h"
 
 int arraySum(int *array, size_t size) {
     int sum = 0;

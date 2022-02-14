@@ -53,4 +53,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/lab_5b.dir/DependInfo.cmake"
   "libs/data_structures/CMakeFiles/matrix.dir/DependInfo.cmake"
   "libs/data_structures/CMakeFiles/array.dir/DependInfo.cmake"
+  "libs/data_structures/CMakeFiles/tasks.dir/DependInfo.cmake"
   )
