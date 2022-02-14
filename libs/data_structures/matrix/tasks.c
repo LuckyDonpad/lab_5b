@@ -28,6 +28,22 @@ void sortRowsByMaxElement(matrix m) {
     insertionSortRowsMatrixByRowCriteria(m, getMaxNegative);
 }
 
+/// task 3
+int getMinNegative(int *a, int n){
+    int min = a[0];
+    for (int i = 0; i < n; ++i) {
+        if (a[i] < min)
+            min = a[i];
+    }
+
+    return -min;
+}
+
+
+void sortColsByMinElement(matrix m){
+    insertionSortColsMatrixByColCriteria(m, getMinNegative);
+}
+
 
 
 

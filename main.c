@@ -77,7 +77,7 @@ int main() {
     test();
     matrix m = getMemMatrix(3,3);
     inputMatrix(m);
-    sortRowsByMaxElement(m);
+    sortColsByMinElement(m);
     outputMatrix(m);
 
     return 0;
