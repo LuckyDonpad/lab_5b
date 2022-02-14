@@ -6,6 +6,7 @@
 #define LAB_5B_MATRIX_H
 
 #include <stdbool.h>
+#include <stddef.h>
 
 typedef struct matrix {
     int **values; // элементы матрицы
@@ -90,6 +91,8 @@ matrix createMatrixFromArray(const int *a, size_t nRows, size_t nCols);
 // возвращает указатель на нулевую матрицу массива из nMatrices матриц, размещенных
 // в динамической памяти, построенных из элементов массива a:
 matrix *createArrayOfMatrixFromArray(const int *values,size_t nMatrices, size_t nRows, size_t nCols);
+
+
 
 
 #endif //LAB_5B_MATRIX_H

@@ -4,4 +4,5 @@
 CMakeFiles/lab_5b.dir/main.c.obj: \
  ../libs/data_structures/matrix/array.h \
  ../libs/data_structures/matrix/matrix.h \
+ ../libs/data_structures/matrix/tasks.h \
  ../main.c

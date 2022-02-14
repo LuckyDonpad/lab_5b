@@ -75,6 +75,10 @@ void test() {
 
 int main() {
     test();
+    matrix m = getMemMatrix(3,3);
+    inputMatrix(m);
+    sortRowsByMaxElement(m);
+    outputMatrix(m);
 
     return 0;
 }

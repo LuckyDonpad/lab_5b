@@ -13,6 +13,12 @@ stdio.h
 E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h
 stdbool.h
 -
+stddef.h
+-
+
+E:/clion projects/lab_5b/libs/data_structures/matrix/tasks.h
+matrix.h
+E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h
 
 E:/clion projects/lab_5b/main.c
 stdio.h
@@ -25,4 +31,6 @@ assert.h
 -
 iso646.h
 -
+libs/data_structures/matrix/tasks.h
+E:/clion projects/lab_5b/libs/data_structures/matrix/tasks.h
 
