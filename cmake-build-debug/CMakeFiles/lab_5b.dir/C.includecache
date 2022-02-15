@@ -9,6 +9,8 @@
 E:/clion projects/lab_5b/libs/data_structures/matrix/array.h
 stdio.h
 -
+stdbool.h
+-
 
 E:/clion projects/lab_5b/libs/data_structures/matrix/matrix.h
 stdbool.h

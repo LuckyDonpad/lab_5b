@@ -13,6 +13,14 @@ int arraySum(int *array, size_t size) {
     return sum;
 }
 
+void test_getMinInArea_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {10, 7, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 12, 2}, 3, 4);
+    int min = getMinInArea(m);
+    assert(getMinInArea(m) == 5);
+}
+
 void test_swapRows_smokeTest() {
     matrix m = createMatrixFromArray((int[]) {1, 1, 1, 0, 0, 0, 2, 2, 2}, 3, 3);
     swapRows(m, 0, 1);
@@ -44,24 +52,53 @@ void test_insertionSortColsMatrixByColCriteria_smokeTest() {
     assert(arraySum(col1, 3) >= arraySum(col2, 3) and arraySum(col2, 3) >= arraySum(col3, 3));
 }
 
-void test_twoMatricesEqual_equalMatrices(){
+void test_twoMatricesEqual_equalMatrices() {
     matrix m1 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
-    assert(twoMatricesEqual(m1,m2));
+    assert(twoMatricesEqual(m1, m2));
 }
 
-void test_twoMatricesEqual_nonEqualMatricesByValue(){
+void test_twoMatricesEqual_nonEqualMatricesByValue() {
     matrix m1 = createMatrixFromArray((int[]) {0, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
-    assert(!twoMatricesEqual(m1,m2));
+    assert(!twoMatricesEqual(m1, m2));
 }
 
-void test_twoMatricesEqual_nonEqualMatricesBySize(){
+void test_twoMatricesEqual_nonEqualMatricesBySize() {
     matrix m1 = createMatrixFromArray((int[]) {0, 2, 3, 4}, 2, 2);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
-    assert(!twoMatricesEqual(m1,m2));
+    assert(!twoMatricesEqual(m1, m2));
 }
 
+void test_findSumOfMaxesOfPseudoDiagonal_smokeTest(){
+    matrix m = createMatrixFromArray((int[]){3,2,5,4,
+                                                1,3,6,3,
+                                                3,2,1,2}, 3, 4);
+    assert(findSumOfMaxesOfPseudoDiagonal(m) == 20);
+
+}
+
+void test_transposeIfMatrixHasEqualSumOfRows_smokeTest(){
+    matrix m = createMatrixFromArray((int[]){1,3,2,
+                                             42,42,42,
+                                             3,2,1}, 3, 3);
+    matrix n = createMatrixFromArray((int[]){1,42,3,
+                                             3,42,2,
+                                             2,42,1}, 3, 3);
+    transposeIfMatrixHasEqualSumOfRows(m);
+    assert(twoMatricesEqual(m, n));
+}
+
+void test_getSquareOfMatrixIfSymmetric_smokeTest(){
+    matrix m = createMatrixFromArray((int[]){2,1,2,
+                                             1,3,0,
+                                             2,0,3}, 3, 3);
+    matrix n = createMatrixFromArray((int[]){9,5,10,
+                                             5,10,2,
+                                             10,2,13}, 3, 3);
+    getSquareOfMatrixIfSymmetric(&m);
+    assert(twoMatricesEqual(m, n));
+}
 
 void test() {
     test_swapRows_smokeTest();
@@ -71,17 +108,14 @@ void test() {
     test_twoMatricesEqual_equalMatrices();
     test_twoMatricesEqual_nonEqualMatricesBySize();
     test_twoMatricesEqual_nonEqualMatricesByValue();
+    test_getMinInArea_smokeTest();
+    test_findSumOfMaxesOfPseudoDiagonal_smokeTest();
+    test_transposeIfMatrixHasEqualSumOfRows_smokeTest();
+    test_getSquareOfMatrixIfSymmetric_smokeTest();
 }
 
 int main() {
     test();
-    int x = 3;
-    matrix m = getMemMatrix(x,x);
-//    matrix n = getMemMatrix(3,3);
-    inputMatrix(m);
-//    inputMatrix(n);
-    getSquareOfMatrixIfSymmetric(&m);
-    outputMatrix(m);
 
     return 0;
 }

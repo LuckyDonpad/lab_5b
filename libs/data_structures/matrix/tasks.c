@@ -69,13 +69,12 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
 }
 
 /// task 5
-
 void transposeIfMatrixHasEqualSumOfRows(matrix m) {
     long long rowSums[m.nRows];
     for (int row = 0; row < m.nRows; ++row) {
         rowSums[row] = getSum(m.values[row], m.nCols);
     }
-    if (isUnique(rowSums, m.nRows))
+    if (!isUnique(rowSums, m.nRows))
         transposeSquareMatrix(m);
 }
 
@@ -91,10 +90,10 @@ void getArrayFromLeftDiagonal(matrix m, position pos, int *array, size_t *size) 
     *size = 0;
     int x = pos.rowIndex;
     int y = pos.colIndex;
-    while (x != 0 or y != 0) {
+    while (x >= 0 and y != m.nCols) {
         array[*size] = m.values[x][y];
         *size += 1;
-        y--;
+        y++;
         x--;
     }
 }
@@ -104,14 +103,18 @@ long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     long long max = 0;
     size_t size = 0;
     for (int i = 0; i < m.nCols - 1; ++i) {
-        getArrayFromLeftDiagonal(m, (position) {m.nRows - 1, i}, diagonal, &size);
+        getArrayFromRightDiagonal(m, (position) {m.nRows - 1, i}, diagonal, &size);
         max += getMax(diagonal, size);
     }
 
-    for (int i = 0; i < m.nRows - 1; ++i) {
-        getArrayFromLeftDiagonal(m, (position) {m.nCols - 1, i}, diagonal, &size);
+    for (int i = 0; i < m.nCols - 1; ++i) {
+        getArrayFromRightDiagonal(m, (position) {i, m.nCols - 1}, diagonal, &size);
         max += getMax(diagonal, size);
     }
+    int primeSide = m.nRows < m.nCols ? m.nRows - 1 : m.nCols - 1;
+    position primeDiagonal = {primeSide, primeSide};
+    getArrayFromRightDiagonal(m, primeDiagonal, diagonal, &size);
+    max -= getMax(diagonal, size);
 
     return max;
 }
@@ -121,11 +124,11 @@ void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size)
     *size = 0;
     int x = pos.rowIndex;
     int y = pos.colIndex;
-    while (x != m.nCols or y != 0) {
+    while (x >= 0 and y >= 0) {
         array[*size] = m.values[x][y];
         *size += 1;
         y--;
-        x++;
+        x--;
     }
 }
 
@@ -136,16 +139,16 @@ int getMinInArea(matrix m) {
     int x = max.rowIndex;
     int y = max.colIndex;
     int min = getElementByPosition(m, max);
-    while (x != 0){
+    while (x != 0) {
         x--;
         getArrayFromLeftDiagonal(m, (position) {x, y}, diagonal, &size);
         int diagonalMin = getMin(diagonal, size);
-        if(diagonalMin < min)
+        if (diagonalMin < min)
             min = diagonalMin;
 
         getArrayFromRightDiagonal(m, (position) {x, y}, diagonal, &size);
         diagonalMin = getMin(diagonal, size);
-        if(diagonalMin < min)
+        if (diagonalMin < min)
             min = diagonalMin;
     }
     return min;

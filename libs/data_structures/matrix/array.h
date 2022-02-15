@@ -2,6 +2,7 @@
 // Created by Donpad on 29.01.2022.
 //
 #include <stdio.h>
+#include <stdbool.h>
 
 #ifndef LAB_5B_ARRAY_H
 #define LAB_5B_ARRAY_H

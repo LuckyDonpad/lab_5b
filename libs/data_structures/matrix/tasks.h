@@ -40,4 +40,6 @@ void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size)
 // возвращает сумму максимумов всех псевдодиагонали матрицы m
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+int getMinInArea(matrix m);
+
 #endif //LAB_5B_TASKS_H
