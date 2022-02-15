@@ -19,7 +19,7 @@ void sortRowsByMaxElement(matrix m);
 // возвращает отрицательное значение значение минимального элемента массива a размера n
 int getMinNegative(int *a, int n);
 
-// // сортирует cтолбцы матрицы m по неубыванию наименьших элементов столбцов
+// сортирует cтолбцы матрицы m по неубыванию наименьших элементов столбцов
 void sortColsByMinElement(matrix m);
 
 // если матрица m симметричная, то заменяет её квадратом
@@ -27,5 +27,8 @@ void getSquareOfMatrixIfSymmetric(matrix *m);
 
 // транспонирует матрицу m если среди полных сумм строк нет равных
 void transposeIfMatrixHasEqualSumOfRows(matrix m);
+
+// возвращает значение "истина", если матрицы m1 и m2 являются взаимнообратными
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
 #endif //LAB_5B_TASKS_H

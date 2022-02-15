@@ -78,6 +78,11 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m){
         transposeSquareMatrix(m);
 }
 
+/// task 6
+bool isMutuallyInverseMatrices(matrix m1, matrix m2){
+    matrix m3 = mulMatrices(m1,m2);
+    return (bool)isEMatrix(m3);
+}
 
 
 
