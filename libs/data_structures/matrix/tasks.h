@@ -25,4 +25,7 @@ void sortColsByMinElement(matrix m);
 // если матрица m симметричная, то заменяет её квадратом
 void getSquareOfMatrixIfSymmetric(matrix *m);
 
+// транспонирует матрицу m если среди полных сумм строк нет равных
+void transposeIfMatrixHasEqualSumOfRows(matrix m);
+
 #endif //LAB_5B_TASKS_H
