@@ -17,27 +17,36 @@ void swap_(void *a, void *b, size_t size) {
     }
 }
 
-void swap(int *a, int *b){
+void swap(int *a, int *b) {
     int tmp = *a;
     *a = *b;
     *b = tmp;
 }
 
-bool isUnique(long long *a, int n){
+bool isUnique(long long *a, int n) {
     bool isUnique = true;
     for (int i = 0; i < n; ++i) {
-        for (int j = i+1; j < n; ++j) {
-            if(a[i]==a[j])
+        for (int j = i + 1; j < n; ++j) {
+            if (a[i] == a[j])
                 isUnique = false;
         }
     }
     return isUnique;
 }
 
-long long getSum(int *a, int n){
+long long getSum(int *a, int n) {
     long long sum = 0;
     for (int i = 0; i < n; ++i) {
-        sum+=a[i];
+        sum += a[i];
     }
     return sum;
+}
+
+int getMax(int *array, size_t size) {
+    int max = array[0];
+    for (int i = 0; i < size; ++i) {
+        if (array[i] > max)
+            max = array[i];
+    }
+    return max;
 }

@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include "array.h"
 #include <malloc.h>
+#include <iso646.h>
 
 /// task 1
 void swapRowsWithMinAndMax(matrix m) {
@@ -69,21 +70,50 @@ void getSquareOfMatrixIfSymmetric(matrix *m) {
 
 /// task 5
 
-void transposeIfMatrixHasEqualSumOfRows(matrix m){
+void transposeIfMatrixHasEqualSumOfRows(matrix m) {
     long long rowSums[m.nRows];
     for (int row = 0; row < m.nRows; ++row) {
         rowSums[row] = getSum(m.values[row], m.nCols);
     }
-    if(isUnique(rowSums, m.nRows))
+    if (isUnique(rowSums, m.nRows))
         transposeSquareMatrix(m);
 }
 
 /// task 6
-bool isMutuallyInverseMatrices(matrix m1, matrix m2){
-    matrix m3 = mulMatrices(m1,m2);
-    return (bool)isEMatrix(m3);
+bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
+    matrix m3 = mulMatrices(m1, m2);
+    return (bool) isEMatrix(m3);
 }
 
+/// task 7
+void getArrayFromDiagonal(matrix m, position pos, int *array, size_t *size) {
+    *size = 0;
+    int x = pos.rowIndex;
+    int y = pos.colIndex;
+    while (x != 0 or y != 0) {
+        array[*size] = m.values[x][y];
+        *size+=1;
+        y--;
+        x--;
+    }
+}
+
+long long findSumOfMaxesOfPseudoDiagonal(matrix m){
+    int diagonal[m.nRows];
+    long long max = 0;
+    size_t size = 0;
+    for (int i = 0; i < m.nCols - 1; ++i) {
+        getArrayFromDiagonal(m, (position){m.nRows-1, i}, diagonal, &size);
+        max += getMax(diagonal, size);
+    }
+
+    for (int i = 0; i < m.nRows - 1; ++i) {
+        getArrayFromDiagonal(m, (position){m.nCols - 1, i}, diagonal, &size);
+        max += getMax(diagonal, size);
+    }
+
+    return max;
+}
 
 
 
