@@ -32,7 +32,10 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m);
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
 // заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента последней строки матрицы m;
-void getArrayFromDiagonal(matrix m, position pos, int *array, size_t *size);
+void getArrayFromLeftDiagonal(matrix m, position pos, int *array, size_t *size);
+
+// заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента последней строки матрицы m;
+void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size);
 
 // возвращает сумму максимумов всех псевдодиагонали матрицы m
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);

@@ -16,5 +16,8 @@ long long getSum(int *a, int n);
 
 int getMax(int *array, size_t size);
 
+int getMin(int *array, size_t size);
+
+
 #endif //LAB_5B_ARRAY_H
 

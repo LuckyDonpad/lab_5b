@@ -85,35 +85,68 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     return (bool) isEMatrix(m3);
 }
 
+
 /// task 7
-void getArrayFromDiagonal(matrix m, position pos, int *array, size_t *size) {
+void getArrayFromLeftDiagonal(matrix m, position pos, int *array, size_t *size) {
     *size = 0;
     int x = pos.rowIndex;
     int y = pos.colIndex;
     while (x != 0 or y != 0) {
         array[*size] = m.values[x][y];
-        *size+=1;
+        *size += 1;
         y--;
         x--;
     }
 }
 
-long long findSumOfMaxesOfPseudoDiagonal(matrix m){
+long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
     int diagonal[m.nRows];
     long long max = 0;
     size_t size = 0;
     for (int i = 0; i < m.nCols - 1; ++i) {
-        getArrayFromDiagonal(m, (position){m.nRows-1, i}, diagonal, &size);
+        getArrayFromLeftDiagonal(m, (position) {m.nRows - 1, i}, diagonal, &size);
         max += getMax(diagonal, size);
     }
 
     for (int i = 0; i < m.nRows - 1; ++i) {
-        getArrayFromDiagonal(m, (position){m.nCols - 1, i}, diagonal, &size);
+        getArrayFromLeftDiagonal(m, (position) {m.nCols - 1, i}, diagonal, &size);
         max += getMax(diagonal, size);
     }
 
     return max;
 }
 
+/// task 8
+void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size) {
+    *size = 0;
+    int x = pos.rowIndex;
+    int y = pos.colIndex;
+    while (x != m.nCols or y != 0) {
+        array[*size] = m.values[x][y];
+        *size += 1;
+        y--;
+        x++;
+    }
+}
 
+int getMinInArea(matrix m) {
+    int diagonal[m.nCols];
+    int size = 0;
+    position max = getMaxValuePos(m);
+    int x = max.rowIndex;
+    int y = max.colIndex;
+    int min = getElementByPosition(m, max);
+    while (x != 0){
+        x--;
+        getArrayFromLeftDiagonal(m, (position) {x, y}, diagonal, &size);
+        int diagonalMin = getMin(diagonal, size);
+        if(diagonalMin < min)
+            min = diagonalMin;
 
+        getArrayFromRightDiagonal(m, (position) {x, y}, diagonal, &size);
+        diagonalMin = getMin(diagonal, size);
+        if(diagonalMin < min)
+            min = diagonalMin;
+    }
+    return min;
+}
