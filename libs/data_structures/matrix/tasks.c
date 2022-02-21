@@ -162,7 +162,7 @@ int getMinInArea(matrix m) {
 
 /// task 9
 
-float getDistance(int *a, int n){
+float getDistance(int *a, int n) {
     float sumOfSquares = 0;
     for (int i = 0; i < n; ++i) {
         sumOfSquares += pow(a[i], 2);
@@ -170,48 +170,59 @@ float getDistance(int *a, int n){
     return sqrtf(sumOfSquares);
 }
 
-void sortByDistances(matrix m){
+void sortByDistances(matrix m) {
     selectionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
 
 ///task 10
 
-int cmp_long_long(const void *pa, const void *pb){
-    if (*(long long *)pa == *(long long *)pb)
+int cmp_long_long(const void *pa, const void *pb) {
+    if (*(long long *) pa == *(long long *) pb)
         return 0;
-    else if(*(long long *)pa > *(long long *)pb)
+    else if (*(long long *) pa > *(long long *) pb)
         return 1;
     else
         return -1;
 }
 
-int countNUnique(long long *a, int n){
-    qsort(a,n, sizeof(long long), cmp_long_long);
+int countNUnique(long long *a, int n) {
+    qsort(a, n, sizeof(long long), cmp_long_long);
     int uniqueElements = n > 0;
     for (int i = 1; i < n; ++i) {
-        if(a[i] != a[i - 1])
+        if (a[i] != a[i - 1])
             uniqueElements++;
     }
     return uniqueElements;
 }
 
-int countEqClassesByRowsSum(matrix m){
+int countEqClassesByRowsSum(matrix m) {
     long long rowSums[m.nRows];
     for (int i = 0; i < m.nRows; ++i) {
         rowSums[i] = getSum(m.values[i], m.nCols);
     }
-    int nClasses = countNUnique(rowSums,m.nRows);
+    int nClasses = countNUnique(rowSums, m.nRows);
     return nClasses;
 }
 
 /// task 11
 
-int getNSpecialElement(matrix m){
+int getNSpecialElement(matrix m) {
     int nSpecialElements = 0;
     for (int i = 0; i < m.nRows; ++i) {
         long long rowSum = getSum(m.values[i], m.nCols);
         long long max = getMax(m.values[i], m.nCols);
-        nSpecialElements += rowSum-max < max;
+        nSpecialElements += rowSum - max < max;
     }
     return nSpecialElements;
+}
+
+/// task 12
+
+void swapPenultimateRow(matrix m){
+    position minPos = getMinValuePos(m);
+    int colWithMin[m.nRows];
+    getRowFromColumn(m, minPos.colIndex, colWithMin);
+    for (int i = 0; i < m.nRows; ++i) {
+        m.values[m.nRows - 2][i] = colWithMin[i];
+    }
 }

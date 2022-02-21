@@ -64,5 +64,9 @@ int countEqClassesByRowsSum(matrix m);
 // возвращает количество особых элементов матрицы m (таких что элемент больше суммы всех остальных элементов строки);
 int getNSpecialElement(matrix m);
 
+//Заменяет предпоследнюю строку матрицы m первым
+//из столбцов, в котором находится минимальный элемент матрицы
+void swapPenultimateRow(matrix m);
+
 
 #endif //LAB_5B_TASKS_H

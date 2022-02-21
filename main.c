@@ -158,6 +158,20 @@ void test_getNSpecialElement_smokeTest() {
     int assertThis = getNSpecialElement(m);
     assert(assertThis == 3);
     freeMemMatrix(m);
+
+}
+
+void test_swapPenultimateRow_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {1, 2, 3,
+                                              4, 5, 6,
+                                              7, 8, 1}, 3, 3);
+    matrix n = createMatrixFromArray((int[]) {1, 2, 3,
+                                              1, 4, 7,
+                                              7, 8, 1}, 3, 3);
+    swapPenultimateRow(m);
+    assert(twoMatricesEqual(m, n));
+    freeMemMatrix(m);
+    freeMemMatrix(n);
 }
 
 void test() {
@@ -175,6 +189,7 @@ void test() {
     test_sortByDistances_smokeTest();
     test_countEqClassesByRowsSum_smokeTest();
     test_getNSpecialElement_smokeTest();
+    test_swapPenultimateRow_smokeTest();
 }
 
 int main() {
