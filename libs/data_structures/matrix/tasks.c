@@ -218,11 +218,41 @@ int getNSpecialElement(matrix m) {
 
 /// task 12
 
-void swapPenultimateRow(matrix m){
+void swapPenultimateRow(matrix m) {
     position minPos = getMinValuePos(m);
     int colWithMin[m.nRows];
     getRowFromColumn(m, minPos.colIndex, colWithMin);
     for (int i = 0; i < m.nRows; ++i) {
         m.values[m.nRows - 2][i] = colWithMin[i];
     }
+}
+
+/// task 13
+
+bool isNonDescendingSorted(int *a, int n) {
+    bool isSorted = true;
+    size_t index = 1;
+    while (isSorted and index < n) {
+        isSorted = a[index] >= a[index - 1];
+        index++;
+    }
+    return isSorted;
+}
+
+bool hasAllNonDescendingRows(matrix m) {
+    bool isSorted = true;
+    size_t index = 0;
+    while (isSorted and index < m.nRows) {
+        isSorted = isNonDescendingSorted(m.values[index], m.nCols);
+        index++;
+    }
+    return isSorted;
+}
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix) {
+    int nSorted = 0;
+    for (int matrix = 0; matrix < nMatrix; ++matrix) {
+        nSorted += hasAllNonDescendingRows(ms[matrix]);
+    }
+    return nSorted;
 }

@@ -173,6 +173,16 @@ void test_swapPenultimateRow_smokeTest() {
     freeMemMatrix(m);
     freeMemMatrix(n);
 }
+void test_isNonDescendingSorted_smokeTest(){
+    int a [4] = {2,2,2,2};
+    assert(isNonDescendingSorted(a,4));
+}
+
+void test_countNonDescendingRowsMatrices_smokeTest() {
+    matrix *matrices = createArrayOfMatrixFromArray((int[]) {7, 1, 1, 1, 1, 6, 2, 2, 5, 4, 2, 3, 1, 3, 7, 9}, 4, 2, 2);
+
+   assert(countNonDescendingRowsMatrices(matrices,4) == 2);
+}
 
 void test() {
     test_swapRows_smokeTest();
@@ -190,6 +200,8 @@ void test() {
     test_countEqClassesByRowsSum_smokeTest();
     test_getNSpecialElement_smokeTest();
     test_swapPenultimateRow_smokeTest();
+    test_isNonDescendingSorted_smokeTest();
+    test_countNonDescendingRowsMatrices_smokeTest();
 }
 
 int main() {

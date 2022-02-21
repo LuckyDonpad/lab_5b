@@ -68,5 +68,16 @@ int getNSpecialElement(matrix m);
 //из столбцов, в котором находится минимальный элемент матрицы
 void swapPenultimateRow(matrix m);
 
+// возвращает значение "истина" если массив упорядочен по невозрастанию, иначе "ложь"
+bool isNonDescendingSorted(int *a, int n);
+
+// возвращает значение "истина" если все строки матрицы m упорядочены по невозрастанию иначе "ложь"
+bool hasAllNonDescendingRows(matrix m);
+
+// возвращает количество матриц в массиве ms размера nMatrix все строки которых отсортированы по неубыванию
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+
+
 
 #endif //LAB_5B_TASKS_H
