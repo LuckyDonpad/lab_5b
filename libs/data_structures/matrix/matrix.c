@@ -7,6 +7,7 @@
 #include <assert.h>
 #include "array.h"
 #include <stdbool.h>
+#include <memory.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
     int **values = (int **) malloc(sizeof(int *) * nRows);
@@ -124,11 +125,7 @@ bool twoMatricesEqual(matrix m1, matrix m2) {
         bool isEqual = true;
         size_t y = 0;
         while (isEqual && y < m1.nRows) {
-            size_t x = 0;
-            while (isEqual && x < m1.nCols) {
-                isEqual = (bool) (m1.values[y][x] == m2.values[y][x]);
-                x++;
-            }
+            isEqual = memcmp(m1.values[y], m2.values[y], sizeof(int) * m1.nCols) == 0;
             y++;
         }
         return (bool) isEqual;
@@ -157,7 +154,7 @@ bool isSymmetricMatrix(matrix m) {
         bool isSymmetric = true;
         size_t y = 0;
         while (isSymmetric && y < m.nRows) {
-            size_t x = 0;
+            size_t x = (y + 1);
             while (isSymmetric && x < m.nCols) {
                 isSymmetric = (bool) (m.values[y][x] == m.values[x][y]);
                 x++;

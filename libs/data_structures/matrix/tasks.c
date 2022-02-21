@@ -8,6 +8,8 @@
 #include "array.h"
 #include <malloc.h>
 #include <iso646.h>
+#include <math.h>
+#include <stdint.h>
 
 /// task 1
 void swapRowsWithMinAndMax(matrix m) {
@@ -81,7 +83,9 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m) {
 /// task 6
 bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     matrix m3 = mulMatrices(m1, m2);
-    return (bool) isEMatrix(m3);
+    bool res = isEMatrix(m3);
+    freeMemMatrix(m3);
+    return res;
 }
 
 
@@ -98,25 +102,26 @@ void getArrayFromLeftDiagonal(matrix m, position pos, int *array, size_t *size) 
     }
 }
 
+int getDiagonalIndex(position pos, matrix m) {
+    return abs(pos.rowIndex - pos.colIndex - (m.nRows - 1));
+}
+
 long long findSumOfMaxesOfPseudoDiagonal(matrix m) {
-    int diagonal[m.nRows];
-    long long max = 0;
-    size_t size = 0;
-    for (int i = 0; i < m.nCols - 1; ++i) {
-        getArrayFromRightDiagonal(m, (position) {m.nRows - 1, i}, diagonal, &size);
-        max += getMax(diagonal, size);
+    int nDiagonals = m.nRows + m.nCols - 1;
+    int diagonalMaxes[nDiagonals];
+    for (int i = 0; i < nDiagonals; ++i) {
+        diagonalMaxes[i] = INT32_MIN;
     }
-
-    for (int i = 0; i < m.nCols - 1; ++i) {
-        getArrayFromRightDiagonal(m, (position) {i, m.nCols - 1}, diagonal, &size);
-        max += getMax(diagonal, size);
+    for (int i = 0; i < m.nRows; ++i) {
+        for (int j = 0; j < m.nCols; ++j) {
+            position elementPos = {i, j};
+            int element = getElementByPosition(m, elementPos);
+            int diagonalIndex = getDiagonalIndex(elementPos, m);
+            if (element > diagonalMaxes[diagonalIndex])
+                diagonalMaxes[diagonalIndex] = element;
+        }
     }
-    int primeSide = m.nRows < m.nCols ? m.nRows - 1 : m.nCols - 1;
-    position primeDiagonal = {primeSide, primeSide};
-    getArrayFromRightDiagonal(m, primeDiagonal, diagonal, &size);
-    max -= getMax(diagonal, size);
-
-    return max;
+    return getSum(diagonalMaxes, nDiagonals) - diagonalMaxes[m.nRows - 1];
 }
 
 /// task 8

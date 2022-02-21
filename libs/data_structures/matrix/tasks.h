@@ -31,15 +31,17 @@ void transposeIfMatrixHasEqualSumOfRows(matrix m);
 // возвращает значение "истина", если матрицы m1 и m2 являются взаимнообратными
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
-// заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента последней строки матрицы m;
+// заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента по направлению вверх и влево строки матрицы m;
 void getArrayFromLeftDiagonal(matrix m, position pos, int *array, size_t *size);
 
-// заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента последней строки матрицы m;
+// заполняет массив array размера size элементами диагонали начинающейся с pos - того элемента по направлению вверх и вправо  матрицы m;
 void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size);
 
 // возвращает сумму максимумов всех псевдодиагонали матрицы m
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
 int getMinInArea(matrix m);
+
+int getDiagonalIndex(position pos, matrix m);
 
 #endif //LAB_5B_TASKS_H

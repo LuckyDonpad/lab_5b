@@ -5,6 +5,7 @@
 #include <iso646.h>
 #include "libs/data_structures/matrix/tasks.h"
 
+
 int arraySum(int *array, size_t size) {
     int sum = 0;
     for (int i = 0; i < size; ++i) {
@@ -35,14 +36,14 @@ void test_swapColumns_smokeTest() {
                    m.values[0][1] == 0 and m.values[1][1] == 0 and m.values[2][1] == 0);
 }
 
-void test_insertionSortRowsMatrixByRowCriteria_smokeTest() {
+void test_selectionSortRowsMatrixByRowCriteria_smokeTest() {
     matrix m = createMatrixFromArray((int[]) {1, 1, 1, 0, 0, 0, 2, 2, 2}, 3, 3);
     insertionSortRowsMatrixByRowCriteria(m, arraySum);
     assert(arraySum(m.values[0], 3) >= arraySum(m.values[1], 3) and arraySum(m.values[1], 3) >=
                                                                     arraySum(m.values[2], 3));
 }
 
-void test_insertionSortColsMatrixByColCriteria_smokeTest() {
+void test_selctionSortColsMatrixByColCriteria_smokeTest() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     int col1[3], col2[3], col3[3];
     insertionSortColsMatrixByColCriteria(m, arraySum);
@@ -78,6 +79,7 @@ void test_findSumOfMaxesOfPseudoDiagonal_smokeTest(){
 
 }
 
+//TODO: переделать
 void test_transposeIfMatrixHasEqualSumOfRows_smokeTest(){
     matrix m = createMatrixFromArray((int[]){1,3,2,
                                              42,42,42,
@@ -103,8 +105,8 @@ void test_getSquareOfMatrixIfSymmetric_smokeTest(){
 void test() {
     test_swapRows_smokeTest();
     test_swapColumns_smokeTest();
-    test_insertionSortRowsMatrixByRowCriteria_smokeTest();
-    test_insertionSortColsMatrixByColCriteria_smokeTest();
+    test_selectionSortRowsMatrixByRowCriteria_smokeTest();
+    test_selctionSortColsMatrixByColCriteria_smokeTest();
     test_twoMatricesEqual_equalMatrices();
     test_twoMatricesEqual_nonEqualMatricesBySize();
     test_twoMatricesEqual_nonEqualMatricesByValue();
