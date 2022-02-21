@@ -52,5 +52,14 @@ float getDistance(int *a, int n);
 // сортирует строки ,содержащие координаты точек, матрицы m по отдалению от начала координат
 void sortByDistances(matrix m);
 
+// функция компаратор для qsort возвращающая значение 0 если числа равны, -1 если разность чисел отрицательная, иначе 1
+int cmp_long_long(const void *pa, const void *pb);
+
+// возвращает количество элементов в массиве a размера n встречающихся 1 и более раз
+int countNUnique(long long *a, int n);
+
+// возвращет количество количество классов эквивалентных строк матрицы m
+int countEqClassesByRowsSum(matrix m);
+
 
 #endif //LAB_5B_TASKS_H

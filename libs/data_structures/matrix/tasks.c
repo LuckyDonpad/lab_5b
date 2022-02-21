@@ -10,6 +10,7 @@
 #include <iso646.h>
 #include <math.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 /// task 1
 void swapRowsWithMinAndMax(matrix m) {
@@ -171,4 +172,34 @@ float getDistance(int *a, int n){
 
 void sortByDistances(matrix m){
     selectionSortRowsMatrixByRowCriteriaF(m, getDistance);
+}
+
+///task 10
+
+int cmp_long_long(const void *pa, const void *pb){
+    if (*(long long *)pa == *(long long *)pb)
+        return 0;
+    else if(*(long long *)pa > *(long long *)pb)
+        return 1;
+    else
+        return -1;
+}
+
+int countNUnique(long long *a, int n){
+    qsort(a,n, sizeof(long long), cmp_long_long);
+    int uniqueElements = n > 0;
+    for (int i = 1; i < n; ++i) {
+        if(a[i] != a[i - 1])
+            uniqueElements++;
+    }
+    return uniqueElements;
+}
+
+int countEqClassesByRowsSum(matrix m){
+    long long rowSums[m.nRows];
+    for (int i = 0; i < m.nRows; ++i) {
+        rowSums[i] = getSum(m.values[i], m.nCols);
+    }
+    int nClasses = countNUnique(rowSums,m.nRows);
+    return nClasses;
 }

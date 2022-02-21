@@ -72,47 +72,59 @@ void test_twoMatricesEqual_nonEqualMatricesBySize() {
     assert(!twoMatricesEqual(m1, m2));
 }
 
-void test_findSumOfMaxesOfPseudoDiagonal_smokeTest(){
-    matrix m = createMatrixFromArray((int[]){3,2,5,4,
-                                                1,3,6,3,
-                                                3,2,1,2}, 3, 4);
+void test_findSumOfMaxesOfPseudoDiagonal_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {3, 2, 5, 4,
+                                              1, 3, 6, 3,
+                                              3, 2, 1, 2}, 3, 4);
     assert(findSumOfMaxesOfPseudoDiagonal(m) == 20);
 
 }
 
 //TODO: переделать
-void test_transposeIfMatrixHasEqualSumOfRows_smokeTest(){
-    matrix m = createMatrixFromArray((int[]){1,3,2,
-                                             42,42,42,
-                                             3,2,1}, 3, 3);
-    matrix n = createMatrixFromArray((int[]){1,42,3,
-                                             3,42,2,
-                                             2,42,1}, 3, 3);
+void test_transposeIfMatrixHasEqualSumOfRows_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {1, 3, 2,
+                                              42, 42, 42,
+                                              3, 2, 1}, 3, 3);
+    matrix n = createMatrixFromArray((int[]) {1, 42, 3,
+                                              3, 42, 2,
+                                              2, 42, 1}, 3, 3);
     transposeIfMatrixHasEqualSumOfRows(m);
     assert(twoMatricesEqual(m, n));
 }
 
-void test_getSquareOfMatrixIfSymmetric_smokeTest(){
-    matrix m = createMatrixFromArray((int[]){2,1,2,
-                                             1,3,0,
-                                             2,0,3}, 3, 3);
-    matrix n = createMatrixFromArray((int[]){9,5,10,
-                                             5,10,2,
-                                             10,2,13}, 3, 3);
+void test_getSquareOfMatrixIfSymmetric_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {2, 1, 2,
+                                              1, 3, 0,
+                                              2, 0, 3}, 3, 3);
+    matrix n = createMatrixFromArray((int[]) {9, 5, 10,
+                                              5, 10, 2,
+                                              10, 2, 13}, 3, 3);
     getSquareOfMatrixIfSymmetric(&m);
     assert(twoMatricesEqual(m, n));
 }
 
-void test_sortByDistances_smokeTest(){
-    matrix m = createMatrixFromArray((int[]){2,1,2,
-                                             2,0,3,
-                                             1,3,0,}, 3, 3);
-    matrix n = createMatrixFromArray((int[]){2,1,2,
-                                             1,3,0,
-                                             2,0,3}, 3, 3);
+void test_sortByDistances_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {2, 1, 2,
+                                              2, 0, 3,
+                                              1, 3, 0,}, 3, 3);
+    matrix n = createMatrixFromArray((int[]) {2, 1, 2,
+                                              1, 3, 0,
+                                              2, 0, 3}, 3, 3);
 
     sortByDistances(m);
-    assert(twoMatricesEqual(m,n));
+    assert(twoMatricesEqual(m, n));
+}
+
+void test_countEqClassesByRowsSum_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {1, 1, 1,
+                                              1, 1, 1,
+                                              2, 2, 2,
+                                              2, 2, 2,
+                                              2, 2, 2,
+                                              3, 3, 3,
+                                              3, 3, 3,
+                                              4, 4, 4}, 8, 3);
+    assert(countEqClassesByRowsSum(m) == 4);
 }
 
 void test() {
@@ -128,6 +140,7 @@ void test() {
     test_transposeIfMatrixHasEqualSumOfRows_smokeTest();
     test_getSquareOfMatrixIfSymmetric_smokeTest();
     test_sortByDistances_smokeTest();
+    test_countEqClassesByRowsSum_smokeTest();
 }
 
 int main() {
