@@ -30,7 +30,7 @@ int getMaxNegative(int *a, int n) {
 }
 
 void sortRowsByMaxElement(matrix m) {
-    insertionSortRowsMatrixByRowCriteria(m, getMaxNegative);
+    selectionSortRowsMatrixByRowCriteria(m, getMax);
 }
 
 /// task 3
@@ -46,7 +46,7 @@ int getMinNegative(int *a, int n) {
 
 
 void sortColsByMinElement(matrix m) {
-    insertionSortColsMatrixByColCriteria(m, getMinNegative);
+    selectionSortColsMatrixByColCriteria(m, getMin);
 }
 
 /// task 4
@@ -157,4 +157,18 @@ int getMinInArea(matrix m) {
             min = diagonalMin;
     }
     return min;
+}
+
+/// task 9
+
+float getDistance(int *a, int n){
+    float sumOfSquares = 0;
+    for (int i = 0; i < n; ++i) {
+        sumOfSquares += pow(a[i], 2);
+    }
+    return sqrtf(sumOfSquares);
+}
+
+void sortByDistances(matrix m){
+    selectionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }

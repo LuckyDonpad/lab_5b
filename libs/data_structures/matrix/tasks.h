@@ -40,8 +40,17 @@ void getArrayFromRightDiagonal(matrix m, position pos, int *array, size_t *size)
 // возвращает сумму максимумов всех псевдодиагонали матрицы m
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+// возвращает минимальный элемент матрицы m в треугольной области выше максимального элемента
 int getMinInArea(matrix m);
 
+// возвращает порядковый номер диагонали к которой принадлежит pos-тый элемент матрицы m
 int getDiagonalIndex(position pos, matrix m);
+
+// возвращает расстояние до начала координат от точки с n координатами находящимися в массиве a
+float getDistance(int *a, int n);
+
+// сортирует строки ,содержащие координаты точек, матрицы m по отдалению от начала координат
+void sortByDistances(matrix m);
+
 
 #endif //LAB_5B_TASKS_H

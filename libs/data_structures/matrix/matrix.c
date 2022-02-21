@@ -77,19 +77,19 @@ void swapColumns(matrix m, int j1, int j2) {
     }
 }
 
-void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
+void selectionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int *, int)) {
     int criteriaArray[m.nRows];
     for (int i = 0; i < m.nRows; ++i) {
         criteriaArray[i] = criteria(m.values[i], m.nCols);
     }
     for (int i = 0; i < m.nRows; ++i) {
-        int max = i;
+        int min = i;
         for (int j = i; j < m.nRows; j++) {
-            if (criteriaArray[j] > criteriaArray[max])
-                max = j;
+            if (criteriaArray[j] < criteriaArray[min])
+                min = j;
         }
-        swap_(&criteriaArray[max], &criteriaArray[i], sizeof(int));
-        swapRows(m, i, max);
+        swap_(&criteriaArray[min], &criteriaArray[i], sizeof(int));
+        swapRows(m, i, min);
     }
 }
 
@@ -98,7 +98,7 @@ void getRowFromColumn(matrix m, size_t pos, int *array) {
         array[i] = m.values[i][pos];
 }
 
-void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
+void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int)) {
     int criteriaArray[m.nCols];
     int column[m.nRows];
     for (int i = 0; i < m.nCols; ++i) {
@@ -106,13 +106,29 @@ void insertionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int *, int))
         criteriaArray[i] = criteria(column, m.nRows);
     }
     for (int i = 0; i < m.nCols; ++i) {
-        int max = i;
+        int min = i;
         for (int j = i; j < m.nCols; j++) {
-            if (criteriaArray[j] > criteriaArray[max])
-                max = j;
+            if (criteriaArray[j] < criteriaArray[min])
+                min = j;
         }
-        swap_(&criteriaArray[max], &criteriaArray[i], sizeof(int));
-        swapColumns(m, i, max);
+        swap_(&criteriaArray[min], &criteriaArray[i], sizeof(int));
+        swapColumns(m, i, min);
+    }
+}
+
+void selectionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, int)) {
+    float criteriaArray[m.nRows];
+    for (int i = 0; i < m.nRows; ++i) {
+        criteriaArray[i] = criteria(m.values[i], m.nCols);
+    }
+    for (int i = 0; i < m.nRows; ++i) {
+        int min = i;
+        for (int j = i; j < m.nRows; j++) {
+            if (criteriaArray[j] < criteriaArray[min])
+                min = j;
+        }
+        swap_(&criteriaArray[min], &criteriaArray[i], sizeof(float));
+        swapRows(m, i, min);
     }
 }
 

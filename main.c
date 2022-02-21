@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <iso646.h>
 #include "libs/data_structures/matrix/tasks.h"
+#include <memory.h>
 
 
 int arraySum(int *array, size_t size) {
@@ -38,19 +39,19 @@ void test_swapColumns_smokeTest() {
 
 void test_selectionSortRowsMatrixByRowCriteria_smokeTest() {
     matrix m = createMatrixFromArray((int[]) {1, 1, 1, 0, 0, 0, 2, 2, 2}, 3, 3);
-    insertionSortRowsMatrixByRowCriteria(m, arraySum);
-    assert(arraySum(m.values[0], 3) >= arraySum(m.values[1], 3) and arraySum(m.values[1], 3) >=
+    selectionSortRowsMatrixByRowCriteria(m, arraySum);
+    assert(arraySum(m.values[0], 3) <= arraySum(m.values[1], 3) and arraySum(m.values[1], 3) <=
                                                                     arraySum(m.values[2], 3));
 }
 
-void test_selctionSortColsMatrixByColCriteria_smokeTest() {
+void test_selectionSortColsMatrixByColCriteria_smokeTest() {
     matrix m = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     int col1[3], col2[3], col3[3];
-    insertionSortColsMatrixByColCriteria(m, arraySum);
+    selectionSortColsMatrixByColCriteria(m, arraySum);
     getRowFromColumn(m, 0, col1);
     getRowFromColumn(m, 1, col2);
     getRowFromColumn(m, 2, col3);
-    assert(arraySum(col1, 3) >= arraySum(col2, 3) and arraySum(col2, 3) >= arraySum(col3, 3));
+    assert(arraySum(col1, 3) <= arraySum(col2, 3) and arraySum(col2, 3) <= arraySum(col3, 3));
 }
 
 void test_twoMatricesEqual_equalMatrices() {
@@ -102,11 +103,23 @@ void test_getSquareOfMatrixIfSymmetric_smokeTest(){
     assert(twoMatricesEqual(m, n));
 }
 
+void test_sortByDistances_smokeTest(){
+    matrix m = createMatrixFromArray((int[]){2,1,2,
+                                             2,0,3,
+                                             1,3,0,}, 3, 3);
+    matrix n = createMatrixFromArray((int[]){2,1,2,
+                                             1,3,0,
+                                             2,0,3}, 3, 3);
+
+    sortByDistances(m);
+    assert(twoMatricesEqual(m,n));
+}
+
 void test() {
     test_swapRows_smokeTest();
     test_swapColumns_smokeTest();
     test_selectionSortRowsMatrixByRowCriteria_smokeTest();
-    test_selctionSortColsMatrixByColCriteria_smokeTest();
+    test_selectionSortColsMatrixByColCriteria_smokeTest();
     test_twoMatricesEqual_equalMatrices();
     test_twoMatricesEqual_nonEqualMatricesBySize();
     test_twoMatricesEqual_nonEqualMatricesByValue();
@@ -114,6 +127,7 @@ void test() {
     test_findSumOfMaxesOfPseudoDiagonal_smokeTest();
     test_transposeIfMatrixHasEqualSumOfRows_smokeTest();
     test_getSquareOfMatrixIfSymmetric_smokeTest();
+    test_sortByDistances_smokeTest();
 }
 
 int main() {
