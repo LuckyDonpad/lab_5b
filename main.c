@@ -21,6 +21,7 @@ void test_getMinInArea_smokeTest() {
                                               4, 1, 12, 2}, 3, 4);
     int min = getMinInArea(m);
     assert(getMinInArea(m) == 5);
+    freeMemMatrix(m);
 }
 
 void test_swapRows_smokeTest() {
@@ -28,6 +29,7 @@ void test_swapRows_smokeTest() {
     swapRows(m, 0, 1);
     assert(m.values[0][0] == 0 and m.values[0][1] == 0 and m.values[0][2] == 0 and
                    m.values[1][0] == 1 and m.values[1][1] == 1 and m.values[1][2] == 1);
+    freeMemMatrix(m);
 }
 
 void test_swapColumns_smokeTest() {
@@ -35,6 +37,7 @@ void test_swapColumns_smokeTest() {
     swapColumns(m, 0, 1);
     assert(m.values[0][0] == 1 and m.values[1][0] == 1 and m.values[2][0] == 1 and
                    m.values[0][1] == 0 and m.values[1][1] == 0 and m.values[2][1] == 0);
+    freeMemMatrix(m);
 }
 
 void test_selectionSortRowsMatrixByRowCriteria_smokeTest() {
@@ -42,6 +45,7 @@ void test_selectionSortRowsMatrixByRowCriteria_smokeTest() {
     selectionSortRowsMatrixByRowCriteria(m, arraySum);
     assert(arraySum(m.values[0], 3) <= arraySum(m.values[1], 3) and arraySum(m.values[1], 3) <=
                                                                     arraySum(m.values[2], 3));
+    freeMemMatrix(m);
 }
 
 void test_selectionSortColsMatrixByColCriteria_smokeTest() {
@@ -52,24 +56,31 @@ void test_selectionSortColsMatrixByColCriteria_smokeTest() {
     getRowFromColumn(m, 1, col2);
     getRowFromColumn(m, 2, col3);
     assert(arraySum(col1, 3) <= arraySum(col2, 3) and arraySum(col2, 3) <= arraySum(col3, 3));
+    freeMemMatrix(m);
 }
 
 void test_twoMatricesEqual_equalMatrices() {
     matrix m1 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     assert(twoMatricesEqual(m1, m2));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
 }
 
 void test_twoMatricesEqual_nonEqualMatricesByValue() {
     matrix m1 = createMatrixFromArray((int[]) {0, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     assert(!twoMatricesEqual(m1, m2));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
 }
 
 void test_twoMatricesEqual_nonEqualMatricesBySize() {
     matrix m1 = createMatrixFromArray((int[]) {0, 2, 3, 4}, 2, 2);
     matrix m2 = createMatrixFromArray((int[]) {1, 2, 3, 4, 5, 6, 7, 8, 9}, 3, 3);
     assert(!twoMatricesEqual(m1, m2));
+    freeMemMatrix(m1);
+    freeMemMatrix(m2);
 }
 
 void test_findSumOfMaxesOfPseudoDiagonal_smokeTest() {
@@ -77,6 +88,7 @@ void test_findSumOfMaxesOfPseudoDiagonal_smokeTest() {
                                               1, 3, 6, 3,
                                               3, 2, 1, 2}, 3, 4);
     assert(findSumOfMaxesOfPseudoDiagonal(m) == 20);
+    freeMemMatrix(m);
 
 }
 
@@ -90,6 +102,8 @@ void test_transposeIfMatrixHasEqualSumOfRows_smokeTest() {
                                               2, 42, 1}, 3, 3);
     transposeIfMatrixHasEqualSumOfRows(m);
     assert(twoMatricesEqual(m, n));
+    freeMemMatrix(m);
+    freeMemMatrix(n);
 }
 
 void test_getSquareOfMatrixIfSymmetric_smokeTest() {
@@ -101,6 +115,8 @@ void test_getSquareOfMatrixIfSymmetric_smokeTest() {
                                               10, 2, 13}, 3, 3);
     getSquareOfMatrixIfSymmetric(&m);
     assert(twoMatricesEqual(m, n));
+    freeMemMatrix(m);
+    freeMemMatrix(n);
 }
 
 void test_sortByDistances_smokeTest() {
@@ -113,6 +129,8 @@ void test_sortByDistances_smokeTest() {
 
     sortByDistances(m);
     assert(twoMatricesEqual(m, n));
+    freeMemMatrix(m);
+    freeMemMatrix(n);
 }
 
 void test_countEqClassesByRowsSum_smokeTest() {
@@ -125,6 +143,21 @@ void test_countEqClassesByRowsSum_smokeTest() {
                                               3, 3, 3,
                                               4, 4, 4}, 8, 3);
     assert(countEqClassesByRowsSum(m) == 4);
+    freeMemMatrix(m);
+}
+
+void test_getNSpecialElement_smokeTest() {
+    matrix m = createMatrixFromArray((int[]) {1, 1, 5,
+                                              1, 1, 6,
+                                              2, 2, 42,
+                                              2, 2, 2,
+                                              2, 2, 2,
+                                              3, 3, 3,
+                                              3, 3, 3,
+                                              4, 4, 4}, 8, 3);
+    int assertThis = getNSpecialElement(m);
+    assert(assertThis == 3);
+    freeMemMatrix(m);
 }
 
 void test() {
@@ -141,6 +174,7 @@ void test() {
     test_getSquareOfMatrixIfSymmetric_smokeTest();
     test_sortByDistances_smokeTest();
     test_countEqClassesByRowsSum_smokeTest();
+    test_getNSpecialElement_smokeTest();
 }
 
 int main() {
