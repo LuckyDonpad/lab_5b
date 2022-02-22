@@ -101,8 +101,4 @@ void selectionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 
 
-
-
-
-
 #endif //LAB_5B_MATRIX_H

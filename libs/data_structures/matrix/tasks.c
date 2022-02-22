@@ -288,3 +288,39 @@ void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix){
             outputMatrix(ms[i]);
     }
 }
+
+/// task 15
+
+int getMaxAbsoluteOfArray(int *a, int size){
+    int absoluteMax = abs(a[0]);
+    for (int i = 0; i < size; ++i) {
+        int absolute  = abs(a[i]);
+        if (absolute > absoluteMax)
+            absoluteMax = absolute;
+    }
+    return absoluteMax;
+}
+
+int getMaxAbsoluteOfMatrix(matrix m){
+    int absoluteMax = abs(m.values[0][0]);
+    for (int i = 0; i < m.nRows; ++i) {
+        int absolute  = getMaxAbsoluteOfArray(m.values[i], m.nCols);
+        if (absolute > absoluteMax)
+            absoluteMax = absolute;
+    }
+    return absoluteMax;
+}
+
+void printMatricesWithMinOfMaxOfAbsolute(matrix *ms, int size){
+    int absoluteMax[size];
+    for (int matrix = 0; matrix < size; ++matrix) {
+        absoluteMax[matrix] = getMaxAbsoluteOfMatrix(ms[matrix]);
+    }
+
+    int min = getMin(absoluteMax, size);
+
+    for (int i = 0; i < size; ++i) {
+        if (absoluteMax[i] == min)
+            outputMatrix(ms[i]);
+    }
+}

@@ -86,7 +86,13 @@ int countZeroRows(matrix m);
 // выводит на экран матрицы из массива матриц ms размера nMatrix с наибольшим количеством нулей
 void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
 
+// возвращает число из массива a размера size с наибольшим расстоянием до ноля на числовой прямой
+int getMaxAbsoluteOfArray(int *a, int size);
 
+// возвращает елемент матрицы m с с наибольшим расстоянием до ноля на числовой прямой
+int getMaxAbsoluteOfMatrix(matrix m);
 
+// выводит на экран матрицы с минимальными абсолютными нормами
+void printMatricesWithMinOfMaxOfAbsolute(matrix *ms, int size);
 
 #endif //LAB_5B_TASKS_H

@@ -186,27 +186,53 @@ void test_countNonDescendingRowsMatrices_smokeTest() {
 
 void test_printMatrixWithMaxZeroRows_smokeTest() {
     matrix *ms = createArrayOfMatrixFromArray((int[]) {0, 1,
-                                          0, 1,
-                                          0, 0,
+                                                       0, 1,
+                                                       0, 0,
 
-                                          1, 1,
-                                          1, 1,
-                                          1, 1,
+                                                       1, 1,
+                                                       1, 1,
+                                                       1, 1,
 
-                                          0, 0,
-                                          0, 0,
-                                          4, 7,
+                                                       0, 0,
+                                                       0, 0,
+                                                       4, 7,
 
-                                          0, 0,
-                                          0, 1,
-                                          0, 0,
+                                                       0, 0,
+                                                       0, 1,
+                                                       0, 0,
 
-                                          0, 1,
-                                          0, 1,
-                                          0, 1}, 5, 3, 2);
+                                                       0, 1,
+                                                       0, 1,
+                                                       0, 1}, 5, 3, 2);
 
     printMatrixWithMaxZeroRows(ms, 5);
 }
+
+void test_printMatricesWithMinOfMaxOfAbsolute_smokeTest() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {
+            0, 0,
+            0, 0,
+            0, -42,
+
+            1, 42,
+            1, 1,
+            1, 1,
+
+            0, 0,
+            0, 0,
+            4, 7000,
+
+            0, 0,
+            0, 100,
+            0, 0,
+
+            0, 100,
+            0, 1,
+            0, 1}, 5, 3, 2);
+
+    printMatricesWithMinOfMaxOfAbsolute(ms, 5);
+}
+
 
 void test() {
     test_swapRows_smokeTest();
@@ -227,6 +253,7 @@ void test() {
     test_isNonDescendingSorted_smokeTest();
     test_countNonDescendingRowsMatrices_smokeTest();
     //test_printMatrixWithMaxZeroRows_smokeTest();
+    //test_printMatricesWithMinOfMaxOfAbsolute_smokeTest();
 }
 
 int main() {
