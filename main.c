@@ -158,7 +158,6 @@ void test_getNSpecialElement_smokeTest() {
     int assertThis = getNSpecialElement(m);
     assert(assertThis == 3);
     freeMemMatrix(m);
-
 }
 
 void test_swapPenultimateRow_smokeTest() {
@@ -173,15 +172,40 @@ void test_swapPenultimateRow_smokeTest() {
     freeMemMatrix(m);
     freeMemMatrix(n);
 }
-void test_isNonDescendingSorted_smokeTest(){
-    int a [4] = {2,2,2,2};
-    assert(isNonDescendingSorted(a,4));
+
+void test_isNonDescendingSorted_smokeTest() {
+    int a[4] = {2, 2, 2, 2};
+    assert(isNonDescendingSorted(a, 4));
 }
 
 void test_countNonDescendingRowsMatrices_smokeTest() {
     matrix *matrices = createArrayOfMatrixFromArray((int[]) {7, 1, 1, 1, 1, 6, 2, 2, 5, 4, 2, 3, 1, 3, 7, 9}, 4, 2, 2);
 
-   assert(countNonDescendingRowsMatrices(matrices,4) == 2);
+    assert(countNonDescendingRowsMatrices(matrices, 4) == 2);
+}
+
+void test_printMatrixWithMaxZeroRows_smokeTest() {
+    matrix *ms = createArrayOfMatrixFromArray((int[]) {0, 1,
+                                          0, 1,
+                                          0, 0,
+
+                                          1, 1,
+                                          1, 1,
+                                          1, 1,
+
+                                          0, 0,
+                                          0, 0,
+                                          4, 7,
+
+                                          0, 0,
+                                          0, 1,
+                                          0, 0,
+
+                                          0, 1,
+                                          0, 1,
+                                          0, 1}, 5, 3, 2);
+
+    printMatrixWithMaxZeroRows(ms, 5);
 }
 
 void test() {
@@ -202,6 +226,7 @@ void test() {
     test_swapPenultimateRow_smokeTest();
     test_isNonDescendingSorted_smokeTest();
     test_countNonDescendingRowsMatrices_smokeTest();
+    //test_printMatrixWithMaxZeroRows_smokeTest();
 }
 
 int main() {

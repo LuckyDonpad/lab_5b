@@ -77,6 +77,15 @@ bool hasAllNonDescendingRows(matrix m);
 // возвращает количество матриц в массиве ms размера nMatrix все строки которых отсортированы по неубыванию
 int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
 
+// возвращает количество элементов массива a размера n равных чначению value
+int countValues(const int *a, int n, int value);
+
+// возвращает количество нулей в матрице m
+int countZeroRows(matrix m);
+
+// выводит на экран матрицы из массива матриц ms размера nMatrix с наибольшим количеством нулей
+void printMatrixWithMaxZeroRows(matrix *ms, int nMatrix);
+
 
 
 
